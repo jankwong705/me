@@ -96,14 +96,14 @@ function parseData(projectData) {
     }
 }
 
-loadLocal.addEventListener("click", () => {
-    // Get content from localStorage 
-    const projectData = JSON.parse(localStorage.getItem("projects"));
-    console.log(projectData);
-    parseData(projectData);
-}); 
+// loadLocal.addEventListener("click", () => {
+//     // Get content from localStorage 
+//     const projectData = JSON.parse(localStorage.getItem("projects"));
+//     console.log(projectData);
+//     parseData(projectData);
+// }); 
 
-loadRemote.addEventListener("click", async () => {
+document.addEventListener("DOMContentLoaded", async () => {
     // Get content from JSONBin
     let response = await fetch("https://api.jsonbin.io/v3/b/67d3bd0d8960c979a57141b9", {
         headers: {
