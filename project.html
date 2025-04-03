@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jan Kwong's Projects </title>
+    <link rel="icon" href="icon/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+    <noscript>
+        <style>
+            .switch {
+                display: none;
+            }
+        </style>
+        <strong><em>JavaScript is disabled in your browser. Please enable it for the full functionality.</em></strong>
+    </noscript>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="exp.html">Experiences</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+            <label class="switch">
+                <input type="checkbox" id="light-switch" checked>
+                <span class="slider round"></span>
+            </label>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <hgroup id="project-header" class="page-header">
+            <h1>Projects</h1>
+            <div id="proj-button-container">
+                <button class="load-project-button" id="load-local">Load Local</button>
+                <button class="load-project-button" id="load-remote">Load Remote</button>
+            </div>
+        </hgroup>
+        <template id="proj-temp">
+            <job-exp>
+                <h3>Title</h3>
+                <i>Time</i> <br>
+                <details>
+                    <summary>Details</summary>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </details>
+            </job-exp>
+        </template>
+        <script type="module" src="script/loadProjects.js"></script>
+        <script type="module" src="script/projectCard.js"></script>
+        <div id="project-container">
+            <!-- Should contain project-cards -->
+        </div>
+        <br>
+    </main>
+    <hr>
+    <footer>
+        <address>Contact me at: <a href="mailto:jykwong@ucsd.edu">jykwong@ucsd.edu</a></address>
+        <address>LinkedIn: <a href="https://www.linkedin.com/in/jankwong705/">https://www.linkedin.com/in/jankwong705/</a></address>
+    </footer>
+    <script src="script/theme.js" type="module"></script>
+</body>
+</html>

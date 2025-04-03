@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Jan</title>
+    <link rel="icon" href="icon/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+    <noscript>
+        <style>
+            .switch {
+                display: none;
+            }
+        </style>
+        <strong><em>JavaScript is <del>enabled</del> <ins>disabled</ins> in your browser. Please enable it for the full functionality.</em></strong>
+    </noscript>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="exp.html">Experiences</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+            <label class="switch">
+                <input type="checkbox" id="light-switch" checked>
+                <span class="slider round"></span>
+            </label>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <hgroup id="about-header" class="page-header">
+            <h1>About me</h1>
+        </hgroup>
+        <section id="bio">
+            <bio>
+                <h2>Bio:</h2>
+                <p>My name is Jan Kwong. I am a Computer Science student at UC San Diego, expecting to graduate in <ins>June 2025</ins>. I have a passion for software engineering and higher education research. I have been an Undergraduate Research Assistant at the UCSD LASR Lab, where I participated in a project on forced aligners and neural networks for phonetic recognition. I was also a computer science tutor at my school for the course of Theory of Computability.</p> 
+
+                <p>In my research assistant role, I read and analyzed papers on different ASR models, such as <dfn id="def-whisper">Whisper</dfn>, an ASR model by Open-AI, and implemented programs that calculate the word error rate of the recognized speech output. I used Git as a version control tool and collaborated with other researchers and supervisors.</p> 
+
+                <p>In my computer science tutor role, I held weekly office hours for students, explained course concepts patiently, and discussed concerns with the instructor. I also graded homework and exams from students, giving them insightful and useful feedback.</p> 
+
+                <p>I enjoy working with students and researchers who share my interest in learning and innovation. I value diversity, collaboration, and feedback, and I believe that I can bring unique perspectives and experiences to the team.</p>
+                
+            </bio>
+            <figure>
+                <img src="img/headshot.png" alt="Jan's Profile Picture" id="jan-pic">
+            </figure>
+        </section>
+
+        <section id="education">
+            <edu>
+                <h2 id="edu-head">Education:</h2>
+                <div style="font-size: larger;">UC San Diego</div>
+                <div>Expected Graduation Date: June 2025</div>
+                <div>Major: B.S. Computer Science</div>
+                <div>GPA: 3.8</div>
+            </edu>
+            <br>
+            <!-- Script for loading courses -->
+            <script src="script/coursesJSON.js" type="module"></script>
+            <script src="script/loadCourses.js" type="module"></script>
+            <table border="1" id="courses">
+                <caption id="course-table-title"><b>Courses Taken</b></caption>
+                
+                <colgroup>
+                    <col>
+                    <col>
+                </colgroup>
+
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                </tr>
+                <!-- Courses will be dynamically added here through JavaScript -->
+            </table>
+        </section>
+
+        <section id="resume">
+            <h2>Resume:</h2>
+            <iframe src="resume/resume.pdf" width="600" height="400"></iframe>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <address>Contact me at: <a href="mailto:jykwong@ucsd.edu">jykwong@ucsd.edu</a></address>
+        <address>LinkedIn: <a href="https://www.linkedin.com/in/jankwong705/">https://www.linkedin.com/in/jankwong705/</a></address>
+    </footer>
+    <script src="script/theme.js" type="module"></script>
+</body>
+</html>
