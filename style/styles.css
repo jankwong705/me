@@ -142,16 +142,16 @@ img, video, iframe {
     max-width: 90dvw;
 }
 
-video:hover, img:hover, #msg-button:hover, .load-project-button:hover {
+video:hover, img:hover, #msg-button:hover {
     transition: transform 0.5s ease-in-out;
     transform: scale(1.1);
 }
 job-exp:hover, project-card:hover {
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out !important;
     transform: scale(1.01);
 }
 video:not(:hover), img:not(:hover), #msg-button:not(:hover), job-exp:not(:hover), project-card:not(:hover), nav ul li:not(:hover)  {
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out !important;
     transform: scale(1);
 }
 

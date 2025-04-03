@@ -45,7 +45,7 @@ class ProjectCard extends HTMLElement {
 
     getComponentHTML() {
         return `
-            <h2>${this.getAttribute('title') || ''}</h2>
+            <h3>${this.getAttribute('title') || ''}</h3>
             <i>${this.getAttribute('location') || ''}</i> <br>
             <i>${this.getAttribute('time') || ''}</i> <br>
             <details id="job-details">
@@ -96,21 +96,16 @@ function parseData(projectData) {
     }
 }
 
-// loadLocal.addEventListener("click", () => {
-//     // Get content from localStorage 
-//     const projectData = JSON.parse(localStorage.getItem("projects"));
-//     console.log(projectData);
-//     parseData(projectData);
-// }); 
+const projectData = JSON.parse(localStorage.getItem("projects"));
+console.log(projectData);
+parseData(projectData);
 
-document.addEventListener("DOMContentLoaded", async () => {
-    // Get content from JSONBin
-    let response = await fetch("https://api.jsonbin.io/v3/b/67d3bd0d8960c979a57141b9", {
-        headers: {
-            "X-Master-Key": "$2a$10$EsrVXsDCDivZOfs9EXNzWutZpS8Igvx5B50xVDFiSmok016Kbc9M6"
-        }})
-    let projectData = await response.json();
-    projectData = Object.values(projectData.record);
-    parseData(projectData);
-});
+// Get content from JSONBin
+// let response = await fetch("https://api.jsonbin.io/v3/b/67d3bd0d8960c979a57141b9", {
+//     headers: {
+//         "X-Master-Key": "$2a$10$EsrVXsDCDivZOfs9EXNzWutZpS8Igvx5B50xVDFiSmok016Kbc9M6"
+//     }})
+// let projectData = await response.json();
+// projectData = Object.values(projectData.record);
+// parseData(projectData);
 
