@@ -6,6 +6,8 @@ const courses = [
     {code: "CSE 151A", title: "Machine Learning: Learning Algorithms"},
     {code: "COGS 108", title: "Data Science in Practice"},
     {code: "CSE 141", title: "Computer Architecture"},
+    {code: "LIGN 165", title: "Computational Linguistics"},
+    {code: "CSE 153", title: "Machine Learning for Music"},
     {code: "CSE 152A", title: "Computer Vision"},
     {code: "CSE 132A", title: "Database System Principles"},
     {code: "CSE 134B", title: "Web Client Languages"},
