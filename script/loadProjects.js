@@ -1,4 +1,15 @@
-const project1 = {
+const project4 = {
+    title: "Multi-Agent System for Science",
+    location: "La Jolla",
+    time: "April 2025 - Present",
+    imgSrc: "",
+    item1: "Explores the system-level demands of multi-LLM-agent workloads across tasks like math problem-solving and complex conversations by managing deployments with Kubernetes",
+    item2: "Profiles computational and memory behavior across agent interactions using NVIDIA Nsight Systems to identify inefficiencies and limitations",
+    item3: "Contributes to a system-level research paper targeting IISWC 2025",
+    link: "n/a"
+}
+
+const project3 = {
     title: "Analysis of Pixar Movie Success",
     location: "La Jolla",
     time: "September 2024 - December 2024",
@@ -20,7 +31,7 @@ const project2 = {
     item3: "Contributed to end-to-end Puppeteer testing, improving the reliability and robustness of the application",
     link: "https://cse110-sp24-group22.github.io/cse110-sp24-group22/src/html/home.html"
 };
-const project3 = {
+const project1 = {
     title: "Evaluation of Speech Recognition AI",
     location: "La Jolla, CA",
     time: "January 2024 - December 2024",
@@ -32,5 +43,5 @@ const project3 = {
     link: "https://drive.google.com/file/d/1njbZ3BvwtOl5_99aGGe8xsL3X7Ab2Mzo/view"
 };
 
-const projects = [project1, project2, project3];
+const projects = [project4, project3, project2, project1];
 localStorage.setItem("projects", JSON.stringify(projects));
