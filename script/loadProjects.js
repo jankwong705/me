@@ -7,8 +7,7 @@ const project4 = {
     item2: "Profiles computational and memory behavior across agent interactions using NVIDIA Nsight Systems to identify inefficiencies and limitations",
     item3: "Contributes to a system-level research paper targeting IISWC 2025",
     link: "n/a"
-}
-
+};
 const project3 = {
     title: "Analysis of Pixar Movie Success",
     location: "La Jolla",
@@ -40,7 +39,7 @@ const project1 = {
     item1: "Evaluated the performance of OpenAI’s Whisper against 75 human transcribers on a dataset of 300 English sentences spoken by 20 speakers with varying accents",
     item2: "Discovered that sentence context differentially affected model and human performance",
     item3: "Observed that humans outperformed models on isolated words, suggesting potential limitations in models’ training data or acoustic context requirements",
-    link: "https://drive.google.com/file/d/1njbZ3BvwtOl5_99aGGe8xsL3X7Ab2Mzo/view"
+    link: "https://osf.io/preprints/psyarxiv/8dhua_v1"
 };
 
 const projects = [project4, project3, project2, project1];
