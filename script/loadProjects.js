@@ -1,11 +1,31 @@
+const project6 = {
+    title: "Security Analysis of Apple Intelligence",
+    location: "La Jolla",
+    time: "Oct 2025 - Dec 2025",
+    imgSrc: "",
+    item1: "Reverse-engineered macOS binaries using Ghidra to reconstruct the information flow between user input, Generative AI models, and local storage",
+    item2: "Identified a privacy vulnerability where the system persisted unencrypted sensitive personal information to local directories, bypassing the ephemeral-only privacy policy",
+    item3: "Developed a Python forensic script to simulate TCC (Transparency, Consent, and Control) inheritance attacks, successfully exfiltrating sensitive user data from sandboxed environments",
+    link: "n/a"
+}
+const project5 = {
+    title: "User Intent Prediction on Shopping Sites",
+    location: "La Jolla",
+    time: "Oct 2025 - Dec 2025",
+    imgSrc: "",
+    item1: "Developed a dual Hidden Markov Model (HMM) system with the hmmlearn library to predict user purchase intent from clickstream data, achieving 90.4% accuracy and 0.92 precision on the RetailRocket dataset",
+    item2: "Engineered a high-volume data pipeline to process 2.7 million behavioral events, implementing a dynamic algorithm to reconstruct user browsing sessions",
+    item3: "Implemented the Baum-Welch algorithm for unsupervised training and the Forward algorithm for inference, classifying user sessions by comparing log-likelihood ratios between the two HMMs",
+    link: "https://github.com/jankwong705/cse250a_proj"
+}
 const project4 = {
     title: "Multi-Agent System for Science",
     location: "La Jolla",
-    time: "April 2025 - Present",
+    time: "April 2025 - Aug 2025",
     imgSrc: "",
-    item1: "Explores the system-level demands of multi-LLM-agent workloads across tasks like math problem-solving and complex conversations by managing deployments with Kubernetes",
-    item2: "Profiles computational and memory behavior across agent interactions using NVIDIA Nsight Systems to identify inefficiencies and limitations",
-    item3: "Contributes to a system-level research paper targeting IISWC 2025",
+    item1: "Managed a Kubernetes-based deployment pipeline to orchestrate multi-LLM-agent workloads across tasks on math problem-solving and complex conversations",
+    item2: "Profiled computational bottlenecks and memory usage across agent interactions using NVIDIA Nsight Systems, identifying key inefficiencies in concurrent agent execution",
+    item3: "Conducted system-level performance analysis to support research targeting architecture conferences",
     link: "n/a"
 };
 const project3 = {
@@ -42,5 +62,5 @@ const project1 = {
     link: "https://osf.io/preprints/psyarxiv/8dhua_v1"
 };
 
-const projects = [project4, project3, project2, project1];
+const projects = [project6, project5, project4, project3, project2, project1];
 localStorage.setItem("projects", JSON.stringify(projects));
