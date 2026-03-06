@@ -6,7 +6,7 @@ const project6 = {
     item1: "Reverse-engineered macOS binaries using Ghidra to reconstruct the information flow between user input, Generative AI models, and local storage",
     item2: "Identified a privacy vulnerability where the system persisted unencrypted sensitive personal information to local directories, bypassing the ephemeral-only privacy policy",
     item3: "Developed a Python forensic script to simulate TCC (Transparency, Consent, and Control) inheritance attacks, successfully exfiltrating sensitive user data from sandboxed environments",
-    link: "n/a"
+    link: "https://drive.google.com/file/d/11rkXLmg64RDYaL7tZD3tpFTOID81ykX4/view?usp=sharing"
 }
 const project5 = {
     title: "User Intent Prediction on Shopping Sites",
