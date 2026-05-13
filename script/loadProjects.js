@@ -1,6 +1,17 @@
+const project7 = {
+    title: "RAG & Context Engineering Pipeline ",
+    location: "La Jolla, CA",
+    time: "Apr 2026 – May 2026",
+    imgSrc: "",
+    item1: "Built a single-turn Q&A Retrieval-Augmented Generation system over a technical OSS documentation corpus, enforcing a strict 2,000-token per-query context budget",
+    item2: "Conducted a systematic sweep of 8+ configurations (varying chunk size, embedding model, retrieval strategy, and reranker settings) to optimize retrieval and generation quality",
+    item3: "Achieved 0.93 Correctness and 1.00 Faithfulness by implementing parent-document retrieval with BM25/vector hybrid search, a BGE cross-encoder reranker, and a dual-citation few-shot prompting strategy",
+    link: "n/a"
+}
+
 const project6 = {
     title: "Security Analysis of Apple Intelligence",
-    location: "La Jolla",
+    location: "La Jolla, CA",
     time: "Oct 2025 - Dec 2025",
     imgSrc: "",
     item1: "Reverse-engineered macOS binaries using Ghidra to reconstruct the information flow between user input, Generative AI models, and local storage",
@@ -10,7 +21,7 @@ const project6 = {
 }
 const project5 = {
     title: "User Intent Prediction on Shopping Sites",
-    location: "La Jolla",
+    location: "La Jolla, CA",
     time: "Oct 2025 - Dec 2025",
     imgSrc: "",
     item1: "Developed a dual Hidden Markov Model (HMM) system with the hmmlearn library to predict user purchase intent from clickstream data, achieving 90.4% accuracy and 0.92 precision on the RetailRocket dataset",
@@ -20,7 +31,7 @@ const project5 = {
 }
 const project4 = {
     title: "Multi-Agent System for Science",
-    location: "La Jolla",
+    location: "La Jolla, CA",
     time: "April 2025 - Aug 2025",
     imgSrc: "",
     item1: "Managed a Kubernetes-based deployment pipeline to orchestrate multi-LLM-agent workloads across tasks on math problem-solving and complex conversations",
@@ -30,7 +41,7 @@ const project4 = {
 };
 const project3 = {
     title: "Analysis of Pixar Movie Success",
-    location: "La Jolla",
+    location: "La Jolla, CA",
     time: "September 2024 - December 2024",
     imgSrc: "img/movie_pj.png",
     altText: "Character types vs. revenue visualzied in a boxplot.",
@@ -41,7 +52,7 @@ const project3 = {
 };
 const project2 = {
     title: "Streak-Based Developer Journal",
-    location: "La Jolla",
+    location: "La Jolla, CA",
     time: "April 2024 - June 2024",
     imgSrc: "img/devjourn_pj.png",
     altText: "Home page of the developer journal, showcasing the plant-based theme",
