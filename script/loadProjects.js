@@ -1,5 +1,16 @@
+const project8 = {
+    title: "picoLM: Compact Language Model",
+    location: "La Jolla, CA",
+    time: "Apr 2026 – Jun 2026",
+    imgSrc: "",
+    item1: "Pretrained a 98M-parameter decoder-only transformer (GQA, SwiGLU, RoPE) in PyTorch on a single shared, interruptible GPU, achieving ~41 perplexity on a 5M-token web-text validation set",
+    item2: "Built a streaming data pipeline over FineWeb, SlimPajama, DCLM, and RedPajama-V2 with on-the-fly hash deduplication and token packing, never materializing the corpus on disk",
+    item3: "Applied knowledge distillation from GPT-Neo-2.7B, combining teacher-imitation and ground-truth losses",
+    link: "https://huggingface.co/jankwong705/picoLM"
+}
+
 const project7 = {
-    title: "RAG & Context Engineering Pipeline ",
+    title: "RAG & Context Engineering Pipeline",
     location: "La Jolla, CA",
     time: "Apr 2026 – May 2026",
     imgSrc: "",
@@ -73,5 +84,5 @@ const project1 = {
     link: "https://osf.io/preprints/psyarxiv/8dhua_v1"
 };
 
-const projects = [project6, project5, project4, project3, project2, project1];
+const projects = [project8, project7, project6, project5, project4, project3, project2, project1];
 localStorage.setItem("projects", JSON.stringify(projects));
