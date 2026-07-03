@@ -10,13 +10,8 @@
 <body>
     <noscript>
         <style>
-            .switch {
-                display: none;
-            }
+            .switch { display: none; }
         </style>
-        <strong><em>JavaScript is disabled in your browser. Please enable it for the full functionality.</em></strong>
-    </noscript>
-    <header>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -25,94 +20,26 @@
                 <li><a href="project.html">Projects</a></li>
                 <li><a href="contact.html">Contact Me</a></li>
             </ul>
-            <label class="switch">
-                <input type="checkbox" id="light-switch" checked>
-                <span class="slider round"></span>
-            </label>
         </nav>
-    </header>
-    <hr>
+        <strong><em>JavaScript is disabled in your browser. Please enable it for the full functionality.</em></strong>
+    </noscript>
+    <site-header></site-header>
     <main>
         <hgroup id="exp-header" class="page-header">
             <h1>Experiences</h1>
         </hgroup>
-        <template id="job-temp">
-            <job-exp>
-                <h3>Title</h3>
-                <i>Employer</i> <br>
-                <i>Location</i> <br>
-                <i>Time</i> <br>
-                <details>
-                    <summary>Details</summary>
-                    <ul>
-                        <li></li>
-                    </ul> 
-                </details>
-            </job-exp>
-        </template>
-        <job-exp>
-            <h3>Gradudate Teaching Assistant</h3>
-            <i>UC San Diego</i> <br>
-            <i>La Jolla, CA</i> <br>
-            <i>April 2026 - Jun 2026</i> <br>
-            <details id="job-details">
-                <summary id="job-details-sum">Details</summary>
-                <ul>
-                    <li>Led weekly discussion sections of ~40 students for the class Intro to Research Methods, mentoring them through empirical study design, statistical validation, and analysis methodologies</li>
-                    <li>Designed and refined discussion slides covering key course concepts, hosted weekly office hours, and gave students concrete feedback on assessments, helping them grasp difficult ideas and improve their work</li>
-                </ul>
-            </details>
-        </job-exp>
-        <job-exp>
-            <h3>Computer Science Tutor</h3>
-            <i>UC San Diego</i> <br>
-            <i>La Jolla, CA</i> <br>
-            <i>April 2024 - Jun 2025</i> <br>
-            <details id="job-details">
-                <summary id="job-details-sum">Details</summary>
-                <ul>
-                    <li>Provided clarification and support to about 200 students enrolled in courses "Theory of Computation" and “Advanced Data Structures” during office hours</li>
-                    <li>Evaluated students’ homework assignments and exams, offering detailed feedback to aid their understanding</li>
-                    <li>Participated in weekly meetings with the teaching team of 10 to discuss course progress and address challenges</li>
-                </ul>
-            </details>
-        </job-exp>
-        <job-exp>
-            <h3>Undergraduate Research Assistant</h3>
-            <i href="https://quote.ucsd.edu/lasr/">UC San Diego LASR Lab</i> <br>
-            <i>La Jolla, CA</i> <br>
-            <i>Jan 2024 - December 2024</i> <br>
-            <details id="job-details">
-                <summary id="job-details-sum">Details</summary>
-                <ul>
-                    <li>Co-authored a paper (submitted to Acoustical Society of America & PsyArXiv) benchmarking OpenAI’s Whisper against 75 human transcribers on 300 English sentences from 20 diverse accented speakers</li>
-                    <li>Developed Python scripts to automate the computation of word error rates (WER), identifying that humans significantly outperform models on isolated words, 
-                        suggesting potential limitations in models’ training data or acoustic context requirements</li>
-                </ul>
-            </details>
-        </job-exp>
-        <job-exp>
-            <h3>Instructional Apprentice</h3>
-            <i>UC San Diego</i> <br>
-            <i>La Jolla, CA</i> <br>
-            <i>September 2023 - December 2023</i> <br>
-            <details id="job-details">
-                <summary id="job-details-sum">Details</summary>
-                <ul>
-                    <li>Assisted teaching assistants in hosting studio sessions for the "The Design of Everyday Things" course</li>
-                    <li>Evaluated student projects, providing constructive feedback to support their learning objectives</li>
-                    <li>Attended weekly meetings with the teaching team to assess course progress and identify areas for improvement</li>
-                </ul>
-            </details>
-        </job-exp>
+        <div id="card-container">
+            <!-- info-cards injected by the script below -->
+        </div>
         <br>
     </main>
-    <hr>
-    <footer>
-        <address>Contact me at: <a href="mailto:jankwong705@gmail.com">jankwong705@gmail.com</a></address>
-        <address>LinkedIn: <a href="https://www.linkedin.com/in/jankwong705/">https://www.linkedin.com/in/jankwong705/</a></address>
-        <address>GitHub: <a href="https://github.com/jankwong705">https://github.com/jankwong705</a></address>
-    </footer>
+    <site-footer></site-footer>
+    <script type="module">
+        import { renderCards } from "./script/renderCards.js";
+        import { experiences } from "./script/experiencesData.js";
+        renderCards("card-container", experiences);
+    </script>
+    <script src="script/layout.js" type="module"></script>
     <script src="script/theme.js" type="module"></script>
 </body>
 </html>

@@ -10,13 +10,8 @@
 <body>
     <noscript>
         <style>
-            .switch {
-                display: none;
-            }
+            .switch { display: none; }
         </style>
-        <strong><em>JavaScript is <del>enabled</del> <ins>disabled</ins> in your browser. Please enable it for the full functionality.</em></strong>
-    </noscript>
-    <header>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -25,13 +20,10 @@
                 <li><a href="project.html">Projects</a></li>
                 <li><a href="contact.html">Contact Me</a></li>
             </ul>
-            <label class="switch">
-                <input type="checkbox" id="light-switch" checked>
-                <span class="slider round"></span>
-            </label>
         </nav>
-    </header>
-    <hr>
+        <strong><em>JavaScript is <del>enabled</del> <ins>disabled</ins> in your browser. Please enable it for the full functionality.</em></strong>
+    </noscript>
+    <site-header></site-header>
     <main>
         <hgroup id="about-header" class="page-header">
             <h1>About me</h1>
@@ -75,7 +67,6 @@
             </edu>
             <br>
             <!-- Script for loading courses -->
-            <script src="script/coursesJSON.js" type="module"></script>
             <script src="script/loadCourses.js" type="module"></script>
             <table border="1" id="courses">
                 <caption id="course-table-title"><b>Courses Taken</b></caption>
@@ -98,12 +89,8 @@
             <iframe src="resume/resume.pdf" width="600" height="400"></iframe>
         </section>
     </main>
-    <hr>
-    <footer>
-        <address>Contact me at: <a href="mailto:jankwong705@gmail.com">jankwong705@gmail.com</a></address>
-        <address>LinkedIn: <a href="https://www.linkedin.com/in/jankwong705/">https://www.linkedin.com/in/jankwong705/</a></address>
-        <address>GitHub: <a href="https://github.com/jankwong705">https://github.com/jankwong705</a></address>
-    </footer>
+    <site-footer></site-footer>
+    <script src="script/layout.js" type="module"></script>
     <script src="script/theme.js" type="module"></script>
 </body>
 </html>
