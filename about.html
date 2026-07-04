@@ -21,69 +21,65 @@
         <strong><em>JavaScript is <del>enabled</del> <ins>disabled</ins> in your browser. Please enable it for the full functionality.</em></strong>
     </noscript>
     <site-header></site-header>
-    <main>
-        <hgroup id="about-header" class="page-header">
-            <h1>About me</h1>
-        </hgroup>
-        <section id="bio">
+    <main class="about-page">
+        <header class="about-hero">
+            <img src="img/headshot.png" alt="Jan's Profile Picture" id="jan-pic">
+            <hgroup>
+                <h1>Jan Kwong</h1>
+                <p class="hero-tagline">M.S. Computer Science @ UC San Diego</p>
+            </hgroup>
+        </header>
+
+        <section id="bio" class="about-section">
+            <div class="section-label">Bio</div>
             <bio>
-                <h2>Bio:</h2>
-                <p>My name is Jan Kwong. 
-                    I am pursuing an M.S. in Computer Science at UC San Diego. 
-                    I have a passion for software engineering and higher education research. 
-                    While I was an Undergraduate Research Assistant at the UCSD LASR Lab, I participated in a project on automatic speech recognition models (ASR). 
-                    I was also a computer science tutor at my school for the course of Theory of Computation.</p> 
+                <p>My name is Jan Kwong, and I am pursuing an M.S. in Computer Science at UC San Diego.
+                    My work focuses on machine learning and software engineering.</p>
 
-                <p>In my research assistant role, I read and analyzed papers on different ASR models, 
-                    such as Whisper, an ASR model by Open-AI, 
-                    and implemented Python scripts that automate the computation of word error rate of the recognized speech output. 
-                    Through this project, we've discovered that humans outperform AI models on isolated words, 
-                    suggesting potential limitations in models’ training data or acoustic context requirements.</p> 
+                <p>As a Graduate Teaching Assistant, I lead weekly discussion sections of around 40 students in Intro to Research Methods,
+                    guiding them through study design, statistical validation, and analysis.
+                    Earlier, I tutored roughly 200 students across the courses Theory of Computation and Advanced Data Structures,
+                    holding office hours and giving detailed feedback on their work.
+                    Teaching has sharpened how I explain complex ideas and made mentorship a core part of how I work.</p>
 
-                <p>In my computer science tutor role, 
-                    I held weekly office hours for students, explained course concepts patiently, 
-                    and discussed concerns with the instructor. 
-                    I also graded homework and exams from students, giving them insightful and useful feedback.</p> 
+                <p>At the UCSD LASR Lab, I co-authored a paper benchmarking OpenAI's Whisper against 75 human transcribers,
+                    implementing the Python script to compute word error rates and helping surface where models still fall short of humans on isolated words.
+                    I've since extended that curiosity into multi-agent LLM systems and performance analysis for research targeting systems conferences.</p>
 
-                <p>I enjoy working with students and researchers who share my interest in learning and innovation. 
-                    I value diversity, collaboration, and feedback, and I believe that I can bring unique perspectives and experiences to the team.</p>
-                
+                <p>Most recently, I pretrained picoLM (a 98M-parameter transformer, from scratch in PyTorch),
+                    built a retrieval-augmented Q&amp;A pipeline that reached 0.93 correctness under a strict token budget,
+                    and reverse-engineered macOS binaries to uncover a privacy vulnerability in Apple Intelligence.</p>
+
+                <p>Across teaching, research, and building, I gravitate toward work that is both rigorous, practical, and innovative.
+                    I'm excited to keep working across all three.
+                </p>
             </bio>
-            <figure>
-                <img src="img/headshot.png" alt="Jan's Profile Picture" id="jan-pic">
-            </figure>
         </section>
 
-        <section id="education">
-            <edu>
-                <h2 id="edu-head">Education:</h2>
-                <div style="font-size: larger;"><b>UC San Diego</b></div>
-                <div>M.S. Computer Science (Anticipated Jun 2026)</div>
-                <div>B.S. Computer Science (Sep 2021 - Jun 2025)</div>
-                <div>GPA: 3.8</div>
-            </edu>
-            <br>
+        <section id="education" class="about-section">
+            <div class="section-label">Education</div>
+            <div class="edu-list">
+                <div class="edu-row">
+                    <span class="degree">UC San Diego · M.S. Computer Science</span>
+                    <span class="when">Anticipated Dec 2026</span>
+                </div>
+                <div class="edu-row">
+                    <span class="degree">UC San Diego · B.S. Computer Science</span>
+                    <span class="when">Sep 2021 – Jun 2025 · GPA 3.8</span>
+                </div>
+            </div>
+            <div class="section-sublabel">Courses taken</div>
             <!-- Script for loading courses -->
             <script src="script/loadCourses.js" type="module"></script>
-            <table border="1" id="courses">
-                <caption id="course-table-title"><b>Courses Taken</b></caption>
-                
-                <colgroup>
-                    <col>
-                    <col>
-                </colgroup>
-
-                <tr>
-                    <th>Course</th>
-                    <th>Title</th>
-                </tr>
-                <!-- Courses will be dynamically added here through JavaScript -->
-            </table>
+            <div id="courses" class="course-chips">
+                <!-- Course chips are added dynamically through JavaScript -->
+            </div>
         </section>
 
-        <section id="resume">
-            <h2>Resume:</h2>
-            <iframe src="resume/resume.pdf" width="600" height="400"></iframe>
+        <section id="resume" class="about-section">
+            <div class="section-label">Resume</div>
+            <iframe src="resume/resume.pdf" width="600" height="400" title="Jan Kwong's resume"></iframe>
+            <p class="resume-download"><a href="resume/resume.pdf" download>Download PDF ↓</a></p>
         </section>
     </main>
     <site-footer></site-footer>

@@ -14,7 +14,12 @@ export const courses = [
     { code: "CSE 153", title: "Machine Learning for Music" },
     { code: "CSE 202", title: "Algorithm Design and Analysis" },
     { code: "CSE 227", title: "Computer Security" },
+    { code: "CSE 230", title: "Principles of Programming Languages" },
+    { code: "CSE 234", title: "Data-Centric AI and AI Engineering" },
     { code: "CSE 250A", title: "AI: Probabilistic Reasoning and Learning" },
+    { code: "CSE 251B", title: "Deep Learning" },
+    { code: "CSE 251U", title: "Unsupervised Learning" },
+    { code: "CSE 256", title: "Statistical NLP" },
     { code: "COGS 108", title: "Data Science in Practice" },
     { code: "LIGN 165", title: "Computational Linguistics" }
 ];
