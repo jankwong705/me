@@ -79,7 +79,7 @@ class SiteFooter extends HTMLElement {
         this.innerHTML = `
             <hr>
             <footer>
-                <address>Contact me at: <a href="mailto:jankwong705@gmail.com">jankwong705@gmail.com</a></address>
+                <address>Email: <a href="mailto:jankwong705@gmail.com">jankwong705@gmail.com</a></address>
                 <address>LinkedIn: <a href="https://www.linkedin.com/in/jankwong705/">https://www.linkedin.com/in/jankwong705/</a></address>
                 <address>GitHub: <a href="https://github.com/jankwong705">https://github.com/jankwong705</a></address>
             </footer>`;
