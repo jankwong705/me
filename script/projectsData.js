@@ -2,7 +2,6 @@
 export const projects = [
     {
         title: "picoLM: Compact Language Model",
-        location: "La Jolla, CA",
         time: "Apr 2026 – Jun 2026",
         link: "https://huggingface.co/jankwong705/picoLM",
         items: [
@@ -13,7 +12,6 @@ export const projects = [
     },
     {
         title: "RAG & Context Engineering Pipeline",
-        location: "La Jolla, CA",
         time: "Apr 2026 – May 2026",
         items: [
             "Built a single-turn Q&A Retrieval-Augmented Generation system over a technical OSS documentation corpus, enforcing a strict 2,000-token per-query context budget",
@@ -23,7 +21,6 @@ export const projects = [
     },
     {
         title: "Security Analysis of Apple Intelligence",
-        location: "La Jolla, CA",
         time: "Oct 2025 - Dec 2025",
         link: "https://drive.google.com/file/d/11rkXLmg64RDYaL7tZD3tpFTOID81ykX4/view?usp=sharing",
         items: [
@@ -34,7 +31,6 @@ export const projects = [
     },
     {
         title: "User Intent Prediction on Shopping Sites",
-        location: "La Jolla, CA",
         time: "Oct 2025 - Dec 2025",
         link: "https://github.com/jankwong705/cse250a_proj",
         items: [
@@ -45,7 +41,6 @@ export const projects = [
     },
     {
         title: "Multi-Agent System for Science",
-        location: "La Jolla, CA",
         time: "April 2025 - Aug 2025",
         items: [
             "Managed a Kubernetes-based deployment pipeline to orchestrate multi-LLM-agent workloads across tasks on math problem-solving and complex conversations",
@@ -55,7 +50,6 @@ export const projects = [
     },
     {
         title: "Analysis of Pixar Movie Success",
-        location: "La Jolla, CA",
         time: "September 2024 - December 2024",
         imgSrc: "img/movie_pj.png",
         altText: "Character types vs. revenue visualized in a boxplot.",
@@ -68,7 +62,6 @@ export const projects = [
     },
     {
         title: "Streak-Based Developer Journal",
-        location: "La Jolla, CA",
         time: "April 2024 - June 2024",
         imgSrc: "img/devjourn_pj.png",
         altText: "Home page of the developer journal, showcasing the plant-based theme",
@@ -81,7 +74,6 @@ export const projects = [
     },
     {
         title: "Evaluation of Speech Recognition AI",
-        location: "La Jolla, CA",
         time: "January 2024 - December 2024",
         imgSrc: "img/whisper_pj.png",
         altText: "Poster showcasing the results of the project.",

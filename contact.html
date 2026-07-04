@@ -31,58 +31,53 @@
             <li>Leave a message <em><b>here:</b></em></li>
         </ol>
         <section id="contact">
-            <form action="https://formspree.io/f/mzzezzvv" method="POST" id="send-msg">
+            <form action="https://formspree.io/f/mzzezzvv" method="POST" id="send-msg" class="contact-form">
                 <fieldset>
-                    <legend id="send-msg-part">Send me a message:</legend>
-                    <br>
-                    <label for="name" class="contact-label">Your Name:</label>
-                    <input type="text" id="name" name="name" class="contact-field" pattern="[a-zA-Z0-9 ]*" maxlength="200" required>
-                    <br>
-                    <output class="error-message" id="name-pattern-mismatch"></output>
-                    
-                    <br><br>
-                    
-                    <label for="email" class="contact-label">Your Email:</label>
-                    <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" class="contact-field" maxlength="200" required>
-                    <br>
-                    <output class="error-message" id="email-pattern-mismatch"></output>
+                    <div class="field">
+                        <label for="name" class="contact-label">Your name</label>
+                        <input type="text" id="name" name="name" class="contact-field" pattern="[a-zA-Z0-9 ]*" maxlength="200" required>
+                        <output class="error-message" id="name-pattern-mismatch"></output>
+                    </div>
 
-                    <br><br>
+                    <div class="field">
+                        <label for="email" class="contact-label">Your email</label>
+                        <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" class="contact-field" maxlength="200" required>
+                        <output class="error-message" id="email-pattern-mismatch"></output>
+                    </div>
 
-                    <label for="number" class="contact-label">Your Phone Number (optional):</label>
-                    <input type="text" id="number" name="number" class="contact-field" pattern="^[0-9]+$" minlength="10" maxlength="10">
-                    <br>
-                    <output class="error-message" id="num-pattern-mismatch"></output>
+                    <div class="field">
+                        <label for="number" class="contact-label">Your phone number (optional)</label>
+                        <input type="text" id="number" name="number" class="contact-field" pattern="^[0-9]+$" minlength="10" maxlength="10">
+                        <output class="error-message" id="num-pattern-mismatch"></output>
+                    </div>
 
-                    <br><br>
-                
-                    <label for="message" class="contact-label">Your Message:</label> <br>
-                    <textarea id="message" name="message" rows="4" cols="50" class="contact-field" minlength="3" maxlength="3000" pattern="[a-zA-Z0-9 .,!?']*" required></textarea> 
-                    <br>
-                    <output class="info" id="char-count">0</output> 
-                    <output class="info" id="total-char">/ 3000</output> 
-                    <output class="error-message" id="full-char"></output>
-                    <output class="error-message" id="message-error"></output>
+                    <div class="field">
+                        <label for="message" class="contact-label">Your message</label>
+                        <textarea id="message" name="message" rows="4" class="contact-field" minlength="3" maxlength="3000" pattern="[a-zA-Z0-9 .,!?']*" required></textarea>
+                        <div class="char-counter">
+                            <output class="info" id="char-count">0</output>
+                            <output class="info" id="total-char">/ 3000</output>
+                            <output class="error-message" id="full-char"></output>
+                            <output class="error-message" id="message-error"></output>
+                        </div>
+                    </div>
 
-                    <br><br>
-
-                    <label for="contact-back" id="ask-reply">What is the best way to reply to you?</label>
-                    <select id="contact-back" name="contact-back">
-                        <optgroup label="Contact Means">
-                        <option value="email-back">Email</option>
-                        <option value="call-back">Phone Number</option>
-                        <option value="no-need">No need to contact me</option>
-                        </optgroup>
-                    </select>
-                    <output class="info" id="reply-soon">(Replies can be expected within 48 hours.)</output>
-
-                    <br><br>
+                    <div class="field">
+                        <label for="contact-back" id="ask-reply" class="contact-label">Best way to reply</label>
+                        <select id="contact-back" name="contact-back" class="contact-field">
+                            <optgroup label="Contact Means">
+                                <option value="email-back">Email</option>
+                                <option value="call-back">Phone Number</option>
+                                <option value="no-need">No need to contact me</option>
+                            </optgroup>
+                        </select>
+                        <output class="info" id="reply-soon">(Replies can be expected within 48 hours.)</output>
+                    </div>
 
                     <input type="hidden" id="possible-bot" name="possible-bot" value="false">
                     <input type="hidden" name="form-errors" id="form-errors">
 
                     <button type="submit" id="msg-button">Send</button>
-                    <br>
                 </fieldset>
             </form>
             <!-- Preventing bots from submitting forms -->

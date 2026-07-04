@@ -6,17 +6,21 @@
     --input-color: color-mix(in display-p3, white 60%, black 40%);
     --dark-mode: #141535be;
     --light-mode: #2196F3;
-    --card-bg: var(--frame-color);
-    --card-border: #021218;
     --card-text: #333;
+    --muted: #4a4a4a;
+    --hairline: rgba(0, 0, 0, 0.12);
+    --card-hover: rgba(0, 0, 0, 0.03);
+    --danger: #d64545;
     --side-pad: 1.75rem;
    }
 
 /* Dark theme: override the variables above; every consumer updates for free. */
 body.dark-mode {
-    --card-bg: #242b60;
-    --card-border: #62787f;
     --card-text: #ffffff;
+    --muted: #9aa0bd;
+    --hairline: rgba(255, 255, 255, 0.14);
+    --card-hover: rgba(255, 255, 255, 0.05);
+    --danger: #ff6b6b;
 }
    
 * {
@@ -66,10 +70,6 @@ body.dark-mode {
         transition: none !important;
         transform: none !important;
     }
-    #send-msg-part {
-        font-variant: small-caps;
-        font-size: xx-large !important;
-    }
     .contact-label {
         font-size: large !important;
     }
@@ -99,10 +99,6 @@ body.dark-mode {
     img, video, iframe {
         max-height: 60dvh;
         max-width: 70dvw;
-    }
-    #send-msg-part {
-        font-variant: small-caps;
-        font-size: xx-large !important;
     }
     .contact-label {
         font-size: large !important;
@@ -147,13 +143,9 @@ hr {
     width: 100%;
     height: 0;
     border: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid var(--hairline);
     margin: 0;
     transition: border-color 0.5s ease-in-out;
-}
-
-body.dark-mode hr {
-    border-top-color: rgba(255, 255, 255, 0.14);
 }
 h1, h2 {
     font-weight: 500;
@@ -193,11 +185,7 @@ video:hover, img:hover, #msg-button:hover {
     transition: transform 0.5s ease-in-out;
     transform: scale(1.1);
 }
-info-card:hover {
-    transition: transform 0.5s ease-in-out !important;
-    transform: scale(1.01);
-}
-video:not(:hover), img:not(:hover), #msg-button:not(:hover), info-card:not(:hover) {
+video:not(:hover), img:not(:hover), #msg-button:not(:hover) {
     transition: transform 0.5s ease-in-out !important;
     transform: scale(1);
 }
@@ -227,7 +215,7 @@ nav ul {
     flex-wrap: wrap;
     padding: 0.85rem var(--side-pad);
     background-color: var(--frame-color);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid var(--hairline);
     animation: fade 1.5s ease-in-out;
     transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
 }
@@ -347,7 +335,6 @@ body.dark-mode {
 /* Sticky bar needs a solid, mode-aware background so content scrolls under it. */
 body.dark-mode .site-nav {
     background-color: #151728;
-    border-bottom-color: rgba(255, 255, 255, 0.14);
 }
 
 body.dark-mode a {
@@ -414,27 +401,98 @@ figcaption pre{
     text-align: center;
 }
 
-/* Experiences */
+/* Experiences & Projects — flat, hairline-separated list (matches the header) */
+#card-container {
+    border-bottom: 1px solid var(--hairline);
+    overflow-x: clip;
+}
 
-info-card:has(h3) {
-    animation: fade 1.5s ease-in-out;
-    transition: background-color 0.5s ease-in-out;
+info-card {
     display: block;
-    padding: var(--standard-gap, 1rem);
-    margin: 10px;
-    background-color: var(--card-bg);
-    border: 2px solid var(--card-border);
-    border-radius: 3px;
+    position: relative;
+    padding: 1.4rem var(--side-pad);
+    border-top: 1px solid var(--hairline);
     text-align: left;
+    animation: fade 1.5s ease-in-out;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+info-card:hover {
+    background-color: var(--card-hover);
+    transform: scale(1.01);
+    z-index: 1;
+}
+
+.card-title {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin: 0 0 0.3rem;
+    transition: color 0.2s ease;
+}
+
+.card-meta {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0 0 0.7rem;
+}
+
+.card-employer,
+.card-link {
+    color: var(--light-mode);
+}
+
+body.dark-mode .card-employer,
+body.dark-mode .card-link {
+    color: var(--light-mode) !important;
+}
+
+/* Details disclosure with a rotating chevron in the accent color */
+.card-details summary {
+    list-style: none;
+    width: fit-content;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.95rem;
+    color: var(--light-mode);
+}
+
+.card-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.card-details summary::before {
+    content: "\203A";
+    display: inline-block;
+    margin-right: 8px;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+}
+
+.card-details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.card-details ul {
+    margin: 0.75rem 0 0;
+    padding-left: 1.2rem;
+    line-height: 1.6;
     color: var(--card-text);
-    font-size: 1.2em;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    word-break: break-word;
 }
 
 .card-pic {
+    display: block;
     max-width: 450px;
     max-height: 300px;
     height: auto;
-    border-radius: 4px;
+    border-radius: 8px;
+    margin-top: 0.9rem;
 }
 
 img.card-pic:hover {
@@ -442,49 +500,99 @@ img.card-pic:hover {
     transform: none !important;
 }
 
-/* Contact */
+/* Contact — flat form with underline fields (matches the header/cards) */
 #contact {
     animation: fade 1.5s ease-in-out;
-    padding: var(--standard-gap);
+    padding: var(--standard-gap) var(--side-pad);
 }
 
-#send-msg-part {
-    font-variant: small-caps;
-    font-size: x-large;
+.contact-form fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 460px;
 }
 
-.contact-lebel {
-    padding: var(--standard-gap);
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+.field:focus-within .contact-label {
+    color: var(--light-mode);
 }
 
 .contact-field {
-    width: 80dvw;                  
-    padding: 5px 3px;           
-    border: 2px solid var(--input-color);      
-    border-radius: 3px;         
-    font-size: 16px;            
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--hairline);
+    border-radius: 0;
+    background: transparent;
+    padding: 6px 2px;
+    font-size: 1rem;
+    color: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.contact-field:focus {
+    outline: none;
+    border-bottom: 2px solid var(--light-mode);
+}
+
+textarea.contact-field {
+    resize: vertical;
 }
 
 .contact-field:user-invalid {
-    background-color: rgb(243, 199, 199);
+    border-bottom-color: var(--danger);
+}
+
+.char-counter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--muted);
 }
 
 .error-message, .info {
     font-size: small;
 }
 
+.error-message {
+    color: var(--danger);
+    font-weight: 500;
+}
+
 #full-char {
-    color: red;
+    color: var(--danger);
     font-weight: bold;
 }
 
-#msg-button, #contact-back {
-    display: block;
-    padding: 8px 20px;
-    border: 2px solid;
-    border-radius: 3px;
-    text-align: center;
-    background-color: var(--button-color);
-    font-size: 15px;
-    font-weight: 300;
+#msg-button {
+    align-self: flex-start;
+    padding: 9px 24px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--light-mode);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+#msg-button:hover {
+    filter: brightness(0.92);
 }

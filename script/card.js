@@ -13,36 +13,35 @@ class InfoCard extends HTMLElement {
     render() {
         const d = this._data || {};
 
-        // Italic meta lines: employer (optionally linked), location, time.
+        // Meta collapsed to one muted line: employer (optionally linked) · location · time.
         const meta = [];
         if (d.employer) {
             meta.push(d.employerLink
-                ? `<i><a href="${d.employerLink}">${d.employer}</a></i>`
-                : `<i>${d.employer}</i>`);
+                ? `<a href="${d.employerLink}" class="card-employer">${d.employer}</a>`
+                : d.employer);
         }
-        if (d.location) meta.push(`<i>${d.location}</i>`);
-        if (d.time) meta.push(`<i>${d.time}</i>`);
+        if (d.location) meta.push(d.location);
+        if (d.time) meta.push(d.time);
 
-        // Detail bullets, plus an optional project link.
-        const items = (d.items || []).map(i => `<li>${i}</li>`);
-        if (d.link && d.link !== "n/a") {
-            items.push(`<li><a href="${d.link}"><strong>Link to project: ${d.link}</strong></a></li>`);
-        }
+        const items = (d.items || []).map(i => `<li>${i}</li>`).join("");
+
+        const link = (d.link && d.link !== "n/a")
+            ? `<a href="${d.link}" class="card-link">Link: ${d.link}</a>`
+            : "";
 
         const picture = d.imgSrc
             ? `<picture><img src="${d.imgSrc}" alt="${d.altText || ""}" class="card-pic"></picture>`
             : "";
 
         this.innerHTML = `
-            <h3>${d.title || ""}</h3>
-            ${meta.join(" <br>\n            ")}${meta.length ? " <br>" : ""}
-            <details>
+            <h3 class="card-title">${d.title || ""}</h3>
+            ${meta.length ? `<p class="card-meta">${meta.join(" · ")}</p>` : ""}
+            <details class="card-details">
                 <summary>Details</summary>
-                <ul>
-                    ${items.join("\n                    ")}
-                </ul>
-            </details>
-            ${picture}`;
+                <ul>${items}</ul>
+                ${link}
+                ${picture}
+            </details>`;
     }
 }
 
