@@ -10,25 +10,67 @@ const NAV_LINKS = [
     { href: "contact.html", label: "Contact Me" }
 ];
 
+// Mark the link for the current page so it can be highlighted.
+const currentPage = location.pathname.split("/").pop() || "index.html";
+
 const navItems = NAV_LINKS
-    .map(l => `<li><a href="${l.href}">${l.label}</a></li>`)
+    .map(l => {
+        const active = l.href === currentPage ? ' class="active"' : "";
+        return `<li><a href="${l.href}"${active}>${l.label}</a></li>`;
+    })
     .join("\n                ");
 
 class SiteHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <header>
+            <header class="site-nav">
+                <a href="index.html" class="brand">Jan Kwong</a>
                 <nav>
                     <ul>
                 ${navItems}
                     </ul>
-                    <label class="switch">
-                        <input type="checkbox" id="light-switch" checked>
-                        <span class="slider round"></span>
-                    </label>
+                    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                        </svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
                 </nav>
-            </header>
-            <hr>`;
+            </header>`;
+        this.setupSlidingUnderline();
+    }
+
+    // Underline that slides to whichever tab the cursor is over, snapping back
+    // to the current page's link when the cursor leaves the nav.
+    setupSlidingUnderline() {
+        const ul = this.querySelector(".site-nav ul");
+        if (!ul) return;
+
+        const indicator = document.createElement("span");
+        indicator.className = "nav-indicator";
+        ul.appendChild(indicator);
+
+        const links = [...ul.querySelectorAll("li a")];
+        const activeLink = ul.querySelector("li a.active") || links[0];
+
+        const moveTo = (el) => {
+            if (!el) return;
+            indicator.style.left = `${el.offsetLeft}px`;
+            indicator.style.top = `${el.offsetTop + el.offsetHeight - 2}px`;
+            indicator.style.width = `${el.offsetWidth}px`;
+        };
+        const reset = () => moveTo(activeLink);
+
+        links.forEach(a => a.addEventListener("mouseenter", () => moveTo(a)));
+        ul.addEventListener("mouseleave", reset);
+
+        requestAnimationFrame(reset);
+        window.addEventListener("load", reset);
+        window.addEventListener("resize", reset);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(reset);
     }
 }
 

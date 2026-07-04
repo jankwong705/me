@@ -9,6 +9,7 @@
     --card-bg: var(--frame-color);
     --card-border: #021218;
     --card-text: #333;
+    --side-pad: 1.75rem;
    }
 
 /* Dark theme: override the variables above; every consumer updates for free. */
@@ -33,8 +34,12 @@ body.dark-mode {
     address {
         text-align: left !important;
     }
+    .site-nav {
+        justify-content: center;
+        gap: 0.75rem 1.25rem;
+    }
     nav ul li {
-        font-size: x-large;
+        font-size: large;
     }
     img, video, iframe {
         max-height: 60vh !important;
@@ -89,7 +94,7 @@ body.dark-mode {
         font-weight: 300 !important;
     }
     nav ul li {
-        font-size: x-large !important;
+        font-size: larger !important;
     }
     img, video, iframe {
         max-height: 60dvh;
@@ -110,14 +115,45 @@ body.dark-mode {
     }
 }
 
-header, footer {
-    padding: var(--standard-gap);
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+    flex-wrap: wrap;
+    padding: 1.4rem var(--side-pad);
     font-size: larger;
 }
 
 address {
     font-weight: 300;
+    margin: 0;
+}
+
+footer address:first-child {
+    text-align: left;
+}
+
+footer address:nth-child(2) {
     text-align: center;
+}
+
+footer address:last-child {
+    text-align: right;
+}
+
+/* Full-width divider (auto margins would collapse a default <hr> in flex column). */
+hr {
+    width: 100%;
+    height: 0;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    margin: 0;
+    transition: border-color 0.5s ease-in-out;
+}
+
+body.dark-mode hr {
+    border-top-color: rgba(255, 255, 255, 0.14);
 }
 h1, h2 {
     font-weight: 500;
@@ -126,7 +162,8 @@ h1, h2 {
 
 a {
     color: black;
-    text-decoration: none; 
+    text-decoration: none;
+    transition: color 0.5s ease-in-out;
 }
 
 a:visited {
@@ -134,7 +171,7 @@ a:visited {
 }
 
 .page-header {
-    padding: var(--standard-gap);
+    padding: var(--standard-gap) var(--side-pad);
 }
 
 /* Animations, Transitions, and Transforms */
@@ -160,114 +197,161 @@ info-card:hover {
     transition: transform 0.5s ease-in-out !important;
     transform: scale(1.01);
 }
-video:not(:hover), img:not(:hover), #msg-button:not(:hover), info-card:not(:hover), nav ul li:not(:hover)  {
+video:not(:hover), img:not(:hover), #msg-button:not(:hover), info-card:not(:hover) {
     transition: transform 0.5s ease-in-out !important;
     transform: scale(1);
 }
 
-/* Navigation Bar */
+/* Navigation Bar — slim top bar (name left, links right) */
+
+/* The <site-header>/<site-footer> wrappers shouldn't create boxes, so their
+   children flow as direct children of <body> (needed for sticky to work). */
+site-header, site-footer {
+    display: contents;
+}
+
 nav ul {
-    display: flex;
-    justify-content: space-evenly;
-    gap: var(--standard-gap);
     list-style: none;
+    margin: 0;
     padding: 0;
+}
+
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0.85rem var(--side-pad);
+    background-color: var(--frame-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    animation: fade 1.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+}
+
+.site-nav .brand {
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: inherit;
+}
+
+.site-nav nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
-nav ul li:hover {
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    background-color: color(srgb 0.94 0.94 0.94);
-    transform: scale(1.05);
+.site-nav ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
-nav ul li {
-    display: block;
-    padding: 8px 20px;
-    border: 2px solid;
-    border-radius: 3px;
-    text-align: center;
-    background-color: var(--frame-color);
+.site-nav li a {
+    color: inherit;
+    opacity: 0.62;
+    padding-bottom: 4px;
+    transition: opacity 0.2s ease, color 0.5s ease-in-out;
+}
+
+.site-nav li a:hover,
+.site-nav li a.active {
+    opacity: 1;
+}
+
+/* Single underline that slides to the hovered tab (JS in layout.js). */
+.nav-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--light-mode);
+    border-radius: 1px;
+    pointer-events: none;
+    transition: left 0.25s ease, width 0.25s ease, top 0.25s ease;
 }
 
 a {
     text-decoration: none;
 }
 
-/* Light-dark Switch */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+/* Light-dark toggle — sun/moon icon button */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    color: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-body.dark-mode, body.dark-mode header ul li {
-    transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
+.theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+    transform: rotate(12deg);
+}
+
+body.dark-mode .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.theme-toggle svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+/* Show the icon for the current mode: sun in light, moon in dark. */
+.theme-toggle .icon-moon {
+    display: none;
+}
+
+body.dark-mode .theme-toggle .icon-sun {
+    display: none;
+}
+
+body.dark-mode .theme-toggle .icon-moon {
+    display: block;
+}
+
+/* Transition on the base selector so BOTH light->dark and dark->light animate. */
+body {
+    background-color: var(--frame-color);
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Let main grow so the footer rests at the bottom on short pages (no gap below it). */
+main {
+    flex: 1 0 auto;
+}
+
+body.dark-mode {
     background-color: #151728;
     color: #ffffff;
 }
 
+/* Sticky bar needs a solid, mode-aware background so content scrolls under it. */
+body.dark-mode .site-nav {
+    background-color: #151728;
+    border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
 body.dark-mode a {
     color: white !important;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-/* Slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--dark-mode);
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-/* Change color as toggled */
-input:checked + .slider {
-    background-color: var(--light-mode);
-    outline: 3px solid var(--dark-mode);
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px var(--light-mode);
-}
-
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-    outline: 3px solid white;
-}
-
-.slider.round:before {
-    border-radius: 50%;
 }
 
 /* Sections */
