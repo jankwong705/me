@@ -1,13 +1,24 @@
 // Experience data. Each entry is rendered by the shared <info-card> component.
 export const experiences = [
     {
+        title: "AI/LLM Engineer",
+        employer: "QualiFly",
+        location: "Remote",
+        time: "April 2026 - Present",
+        items: [
+            "Built text-type-specific prompts and a shared guardrail for QWriter’s LLM writing tutor, routing 6 text types and 4 languages through a title-based type detector so feedback and scoring match each text type",
+            "Built a generate → self-check → repair loop for quiz generation, using structured JSON output, schema validation and prompt versioning to clear stale cached quizzes",
+            "Prototyped a low-temperature LLM grader for Cambridge young-learner writing exams that checks answers against the accepted answers and the official wordlist, choosing it over an embedding-similarity approach"
+        ]
+    },
+    {
         title: "Graduate Teaching Assistant",
         employer: "UC San Diego",
         location: "La Jolla, CA",
-        time: "April 2026 - Jun 2026",
+        time: "April 2026 - Present",
         items: [
-            "Led weekly discussion sections of ~40 students for the class Intro to Research Methods, mentoring them through empirical study design, statistical validation, and analysis methodologies",
-            "Designed and refined discussion slides covering key course concepts, hosted weekly office hours, and gave students concrete feedback on assessments, helping them grasp difficult ideas and improve their work"
+            "Leads weekly discussion sections for Intro to Research and Neurobiology of Cognition, mentoring sections of ~80 students through empirical study design, statistical validation, and core neuroscience concepts",
+            "Designs weekly review slides and multiple-choice practice questions aligned with lecture content, holds weekly office hours, and gives students concrete feedback on assessments to help them grasp difficult ideas and improve their work"
         ]
     },
     {
@@ -28,8 +39,8 @@ export const experiences = [
         location: "La Jolla, CA",
         time: "Jan 2024 - December 2024",
         items: [
-            "Co-authored a paper (submitted to Acoustical Society of America & PsyArXiv) benchmarking OpenAI’s Whisper against 75 human transcribers on 300 English sentences from 20 diverse accented speakers",
-            "Developed Python scripts to automate the computation of word error rates (WER), identifying that humans significantly outperform models on isolated words, suggesting potential limitations in models’ training data or acoustic context requirements"
+            "Co-authored a paper (accepted for publication in JASA) benchmarking OpenAI Whisper against 75 human transcribers on 300 English sentences from 20 diverse accented speakers",
+            "Automated WER computation with Python scripts, discovering that humans significantly outperform models on isolated words, suggesting potential limitations in models’ training data or acoustic context requirements"
         ]
     },
     {

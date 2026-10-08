@@ -7,7 +7,7 @@ export const projects = [
         items: [
             "Pretrained a 98M-parameter decoder-only transformer (GQA, SwiGLU, RoPE) in PyTorch on a single shared, interruptible GPU, achieving ~41 perplexity on a 5M-token web-text validation set",
             "Built a streaming data pipeline over FineWeb, SlimPajama, DCLM, and RedPajama-V2 with on-the-fly hash deduplication and token packing, never materializing the corpus on disk",
-            "Applied knowledge distillation from GPT-Neo-2.7B, combining teacher-imitation and ground-truth losses"
+            "Applied knowledge distillation from GPT-Neo-2.7B, reducing perplexity from 70 to 42 by combining teacher-imitation and ground-truth losses"
         ]
     },
     {
@@ -24,7 +24,7 @@ export const projects = [
         time: "Oct 2025 - Dec 2025",
         link: "https://drive.google.com/file/d/11rkXLmg64RDYaL7tZD3tpFTOID81ykX4/view?usp=sharing",
         items: [
-            "Reverse-engineered macOS binaries using Ghidra to reconstruct the information flow between user input, Generative AI models, and local storage",
+            "Reverse-engineered macOS binaries using Ghidra to map information flow between user input, generative AI models, and local storage",
             "Identified a privacy vulnerability where the system persisted unencrypted sensitive personal information to local directories, bypassing the ephemeral-only privacy policy",
             "Developed a Python forensic script to simulate TCC (Transparency, Consent, and Control) inheritance attacks, successfully exfiltrating sensitive user data from sandboxed environments"
         ]
