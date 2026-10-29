@@ -13,6 +13,7 @@ export const projects = [
     {
         title: "RAG & Context Engineering Pipeline",
         time: "Apr 2026 – May 2026",
+        link: "https://drive.google.com/file/d/1sqAwc_U2t2sslrv0bvfI2BGcOAEQSCZP/view?usp=sharing",
         items: [
             "Built a single-turn Q&A Retrieval-Augmented Generation system over a technical OSS documentation corpus, enforcing a strict 2,000-token per-query context budget",
             "Conducted a systematic sweep of 8+ configurations (varying chunk size, embedding model, retrieval strategy, and reranker settings) to optimize retrieval and generation quality",
@@ -77,7 +78,7 @@ export const projects = [
         time: "January 2024 - December 2024",
         imgSrc: "img/whisper_pj.png",
         altText: "Poster showcasing the results of the project.",
-        link: "https://osf.io/preprints/psyarxiv/8dhua_v1",
+        link: "https://doi.org/10.1121/10.0046916",
         items: [
             "Evaluated the performance of OpenAI’s Whisper against 75 human transcribers on a dataset of 300 English sentences spoken by 20 speakers with varying accents",
             "Discovered that sentence context differentially affected model and human performance",
